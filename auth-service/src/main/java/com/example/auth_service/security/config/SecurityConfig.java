@@ -2,7 +2,7 @@ package com.example.auth_service.security.config;
 
 
 import com.example.auth_service.security.filter.JwtAuthenticationFilter;
-import com.example.auth_service.security.jwt.JwtService;
+import com.example.auth_service.security.service.JwtService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

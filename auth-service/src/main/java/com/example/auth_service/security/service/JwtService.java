@@ -1,4 +1,4 @@
-package com.example.auth_service.security.jwt;
+package com.example.auth_service.security.service;
 
 import com.example.auth_service.entity.User;
 import io.jsonwebtoken.*;

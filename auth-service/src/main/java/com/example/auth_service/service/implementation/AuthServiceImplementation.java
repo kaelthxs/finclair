@@ -6,7 +6,7 @@ import com.example.auth_service.entity.Role;
 import com.example.auth_service.entity.User;
 import com.example.auth_service.repository.RoleRepository;
 import com.example.auth_service.repository.UserRepository;
-import com.example.auth_service.security.jwt.JwtService;
+import com.example.auth_service.security.service.JwtService;
 import com.example.auth_service.service.AuthService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
