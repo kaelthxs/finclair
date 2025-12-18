@@ -49,7 +49,7 @@ public class JwtService {
     public String generateRefreshToken(User user) {
         return Jwts.builder()
                 .setSubject(user.getId().toString())
-                .claim("type", "access")
+                .claim("type", "refresh")
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + refreshExpMs))
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256)
