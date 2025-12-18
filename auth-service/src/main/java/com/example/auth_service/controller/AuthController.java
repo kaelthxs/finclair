@@ -1,7 +1,9 @@
 package com.example.auth_service.controller;
 
 import com.example.auth_service.dto.request.LoginRequest;
+import com.example.auth_service.dto.request.RefreshRequest;
 import com.example.auth_service.dto.request.RegisterRequest;
+import com.example.auth_service.dto.response.TokenResponse;
 import com.example.auth_service.service.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,8 +28,21 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginRequest request) {
-        return ResponseEntity.ok(authService.login(request));
+    public ResponseEntity<TokenResponse> login(@RequestBody LoginRequest request) {
+        TokenResponse tokens = authService.login(request);
+        return ResponseEntity.ok(tokens);
+    }
+
+    @PostMapping("/refresh")
+    public ResponseEntity<TokenResponse> refresh(@RequestBody RefreshRequest request) {
+        TokenResponse tokens = authService.refresh(request.getRefreshToken());
+        return ResponseEntity.ok(tokens);
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<Void> logout(@RequestBody RefreshRequest request) {
+        authService.logout(request.getRefreshToken());
+        return ResponseEntity.ok().build();
     }
 
 }
