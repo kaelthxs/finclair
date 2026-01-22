@@ -32,10 +32,6 @@ services:
       JWT_SECRET: super-secret-key-super-secret-key-super-secret-key
       JWT_ALGORITHM: HS256
 
-
-  # ============================
-  # POSTGRESQL (auth-service)
-  # ============================
   postgres-auth:
     image: postgres:15
     container_name: postgres-auth
@@ -62,21 +58,6 @@ services:
     volumes:
       - postgres_analysis_data:/var/lib/postgresql/data
 
-  # pgAdmin GUI
-  pgadmin:
-    image: dpage/pgadmin4
-    restart: unless-stopped
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: admin
-    ports:
-      - "5050:80"
-    depends_on:
-      - postgres-auth
-
-  # ============================
-  # REDIS
-  # ============================
   redis:
     image: redis:7
     container_name: redis-auth
@@ -84,18 +65,6 @@ services:
     ports:
       - "6379:6379"
 
-  # Redis GUI
-  redisinsight:
-    image: redis/redisinsight:latest
-    restart: unless-stopped
-    ports:
-      - "5540:5540"
-    depends_on:
-      - redis
-
-  # ============================
-  # KAFKA + ZOOKEEPER
-  # ============================
   zookeeper:
     image: confluentinc/cp-zookeeper:7.5.0
     restart: always
