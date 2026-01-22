@@ -2,8 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from typing import Generator
 
-
-DATABASE_URL = "postgresql+psycopg2://postgresql:postgresql@localhost:5434/finclair_analysis"
+from app.core.settings import DATABASE_URL
 
 engine = create_engine(
     DATABASE_URL,

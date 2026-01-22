@@ -1,12 +1,11 @@
 from jose import jwt, JWTError
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
+
+from app.core.settings import JWT_SECRET, JWT_ALGORITHM
 from app.dto.usercontext import UserContext
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
-
-JWT_SECRET = "super-secret-key-super-secret-key-super-secret-key"
-JWT_ALGORITHM = "HS256"
 
 def get_current_user(token: str = Depends(oauth2_scheme)) -> UserContext:
     try:

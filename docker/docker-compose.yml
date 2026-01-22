@@ -18,6 +18,21 @@ services:
       SPRING_DATASOURCE_PASSWORD: postgresql
       SPRING_DATA_REDIS_HOST: redis
 
+  analysis-service:
+    build:
+      context: ../analysis-service-python
+    container_name: analysis-service
+    ports:
+      - "8001:8000"
+    depends_on:
+      - postgres-analysis
+      - kafka
+    environment:
+      DATABASE_URL: postgresql://postgresql:postgresql@postgres-analysis:5432/finclair_analysis
+      JWT_SECRET: super-secret-key-super-secret-key-super-secret-key
+      JWT_ALGORITHM: HS256
+
+
   # ============================
   # POSTGRESQL (auth-service)
   # ============================
