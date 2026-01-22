@@ -1,3 +1,6 @@
+import os
+from sqlalchemy import create_engine
+
 from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
@@ -48,7 +51,11 @@ def run_migrations_offline() -> None:
     script output.
 
     """
-    url = config.get_main_option("sqlalchemy.url")
+    url = os.getenv("DATABASE_URL")
+
+    if not url:
+        raise RuntimeError("DATABASE_URL is not set")
+
     context.configure(
         url=url,
         target_metadata=target_metadata,
@@ -61,25 +68,25 @@ def run_migrations_offline() -> None:
 
 
 def run_migrations_online() -> None:
-    """Run migrations in 'online' mode.
+    database_url = os.getenv("DATABASE_URL")
 
-    In this scenario we need to create an Engine
-    and associate a connection with the context.
+    if not database_url:
+        raise RuntimeError("DATABASE_URL is not set")
 
-    """
-    connectable = engine_from_config(
-        config.get_section(config.config_ini_section, {}),
-        prefix="sqlalchemy.",
+    connectable = create_engine(
+        database_url,
         poolclass=pool.NullPool,
     )
 
     with connectable.connect() as connection:
         context.configure(
-            connection=connection, target_metadata=target_metadata
+            connection=connection,
+            target_metadata=target_metadata,
         )
 
         with context.begin_transaction():
             context.run_migrations()
+
 
 
 if context.is_offline_mode():
