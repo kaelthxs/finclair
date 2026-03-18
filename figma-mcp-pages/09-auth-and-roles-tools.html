@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>09 Управление ролями</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+  <div class="canvas">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <span>Finclair</span>
+      </div>
+      <div class="topbar-actions">
+        <span class="badge">SYSTEM TOOLS</span>
+        <button class="btn secondary logout-btn"><span class="logout-icon">⎋</span><span>Выйти</span></button>
+      </div>
+    </div>
+
+    <div class="grid" style="grid-template-columns:1.2fr 0.8fr;">
+      <div class="panel card">
+        <h1 class="title">Управление ролями</h1>
+        <p class="subtitle">Админ-инструменты для создания и удаления ролей</p>
+
+        <div class="inline-actions" style="margin-top:12px;">
+          <div class="field" style="margin-bottom:0;flex:1;">
+            <label>Role name</label>
+            <input value="AUDITOR" />
+          </div>
+          <button class="btn">Создать роль</button>
+        </div>
+
+        <table class="table" style="margin-top:10px;">
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>LEADER</td><td><button class="btn secondary">Delete</button></td></tr>
+            <tr><td>AUDITOR</td><td><button class="btn secondary">Delete</button></td></tr>
+            <tr><td>CLIENT</td><td><button class="btn secondary">Delete</button></td></tr>
+            <tr><td>USER</td><td><button class="btn secondary">Delete</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel card" style="background:#171723;">
+        <h3 style="margin-top:0">Auth behavior</h3>
+        <div class="note note-ok">Access token обновляется автоматически через refresh-token flow.</div>
+        <div class="note note-ok">Отдельный экран ввода refresh token не нужен.</div>
+        <div class="note note-warn">Кнопка "Выйти" находится в хедере каждого защищенного экрана.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

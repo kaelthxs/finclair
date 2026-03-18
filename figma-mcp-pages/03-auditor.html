@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>03 Кабинет аудитора</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+  <div class="canvas">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <span>Finclair</span>
+      </div>
+      <div class="topbar-actions">
+        <span class="badge">ROLE: AUDITOR</span>
+        <button class="btn secondary logout-btn"><span class="logout-icon">⎋</span><span>Выйти</span></button>
+      </div>
+    </div>
+
+    <div class="tabs page-tabs">
+      <div class="tab nav-tab active">Мои отчеты</div>
+      <div class="tab nav-tab">Анализ</div>
+      <div class="tab nav-tab">Вердикты</div>
+    </div>
+
+    <div class="panel card">
+      <h1 class="title">Кабинет аудитора</h1>
+      <p class="subtitle">Назначенные отчеты, запуск алгоритма и официальный вердикт</p>
+
+      <div class="field" style="max-width:420px;margin-top:14px;">
+        <label>Команда</label>
+        <select>
+          <option>Команда Север</option>
+          <option>Команда Восток</option>
+        </select>
+      </div>
+
+      <div class="grid" style="grid-template-columns:1.5fr 1fr;">
+        <div>
+          <h3 style="margin-top:0">Назначенные отчеты</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Отчет</th>
+                <th>Status</th>
+                <th>Действия</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Q4-2025-Финансы.xlsx</td>
+                <td>AssignedToAuditor</td>
+                <td><button class="btn secondary">Run Algorithm</button> <button class="btn">Open</button></td>
+              </tr>
+              <tr>
+                <td>Бухгалтерский-Баланс-Январь.xlsx</td>
+                <td>AlgorithmCompleted</td>
+                <td><button class="btn">Submit Verdict</button></td>
+              </tr>
+              <tr>
+                <td>Отчет-Производство-2025.xlsx</td>
+                <td>AuditorVerdictSubmitted</td>
+                <td><span class="badge">Waiting Leader</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel card" style="background:#171723;">
+          <h3 style="margin-top:0">Вердикт</h3>
+          <div class="field">
+            <label>Отчет</label>
+            <select>
+              <option>Q4-2025-Финансы.xlsx · AssignedToAuditor</option>
+              <option>Бухгалтерский-Баланс-Январь.xlsx · AlgorithmCompleted</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>verdict</label>
+            <select>
+              <option>Approve</option>
+              <option>Reject</option>
+              <option>NeedsFixes</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>comment</label>
+            <textarea rows="6">В отчете требуется уточнить период и формулу netProfit.</textarea>
+          </div>
+          <button class="btn" style="width:100%">Submit Auditor Verdict</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

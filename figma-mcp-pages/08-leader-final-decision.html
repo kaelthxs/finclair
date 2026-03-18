@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>08 Форма финального решения лидера</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+  <div class="canvas">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <span>Finclair</span>
+      </div>
+      <div class="topbar-actions">
+        <span class="badge">LEADER FINAL</span>
+        <button class="btn secondary logout-btn"><span class="logout-icon">⎋</span><span>Выйти</span></button>
+      </div>
+    </div>
+
+    <div class="panel card two-split">
+      <div>
+        <h1 class="title">Форма: финальное решение лидера</h1>
+        <p class="subtitle">Проверьте отчет и отправьте итоговое решение клиенту</p>
+
+        <div class="form-row" style="margin-top:14px;">
+          <div class="field">
+            <label>Команда</label>
+            <select>
+              <option>Команда Север</option>
+              <option>Команда Восток</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Отчет</label>
+            <select>
+              <option>Q4-2025-Финансы.xlsx · AuditorVerdictSubmitted</option>
+              <option>Бухгалтерский-Баланс-Январь.xlsx · AuditorVerdictSubmitted</option>
+            </select>
+          </div>
+        </div>
+
+        <table class="table">
+          <tbody>
+            <tr><td>Файл</td><td>Q4-2025-Финансы.xlsx</td></tr>
+            <tr><td>Команда</td><td>Команда Север</td></tr>
+            <tr><td>Клиент</td><td>ООО Прогресс</td></tr>
+            <tr><td>Назначенный аудитор</td><td>Анна Петрова</td></tr>
+            <tr><td>Вердикт аудитора</td><td>NeedsFixes</td></tr>
+            <tr><td>Комментарий аудитора</td><td>Исправить reportingPeriod и netProfit.</td></tr>
+            <tr><td>Status</td><td>AuditorVerdictSubmitted</td></tr>
+          </tbody>
+        </table>
+
+        <div class="grid" style="grid-template-columns:1fr 1fr;gap:10px;">
+          <div>
+            <div class="muted tiny">Appropriate</div>
+            <div class="note note-ok">ИНН и реквизиты валидны.</div>
+            <div class="note note-ok">Активы покрывают обязательства.</div>
+          </div>
+          <div>
+            <div class="muted tiny">Inappropriate</div>
+            <div class="note note-danger">netProfit не совпадает с расчетной формулой.</div>
+            <div class="note note-warn">reportingPeriod в нестандартном формате.</div>
+          </div>
+        </div>
+      </div>
+
+      <form class="panel card" style="background:#171723;">
+        <h3 style="margin-top:0">Решение</h3>
+        <div class="field">
+          <label>approve</label>
+          <select>
+            <option>true (Approve)</option>
+            <option>false (Reject)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>comment</label>
+          <textarea rows="8">Отчет принят после исправления спорных полей.</textarea>
+        </div>
+
+        <div class="note note-ok">Комментарий аудитора: исправить reportingPeriod и netProfit.</div>
+        <div class="note note-danger">Высокий риск: проверьте критичные замечания алгоритма перед approve.</div>
+
+        <button class="btn" style="width:100%">Отправить решение</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

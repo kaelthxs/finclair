@@ -8,6 +8,7 @@ public class RegisterRequest {
     private String firstName;
     private String lastName;
     private String preferredLanguage;
+    private String roleName;
 
     public RegisterRequest() {}
 
@@ -57,5 +58,13 @@ public class RegisterRequest {
 
     public void setPreferredLanguage(String preferredLanguage) {
         this.preferredLanguage = preferredLanguage;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 }

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>02 Кабинет лидера</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+  <div class="canvas">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <span>Finclair</span>
+      </div>
+      <div class="topbar-actions">
+        <span class="badge">ROLE: LEADER</span>
+        <button class="btn secondary logout-btn"><span class="logout-icon">⎋</span><span>Выйти</span></button>
+      </div>
+    </div>
+
+    <div class="tabs page-tabs">
+      <div class="tab nav-tab active">Обзор</div>
+      <div class="tab nav-tab">Добавить аудитора</div>
+      <div class="tab nav-tab">Назначить аудитора</div>
+      <div class="tab nav-tab">Финальное решение</div>
+    </div>
+
+    <div class="panel card">
+      <h1 class="title">Кабинет лидера</h1>
+      <p class="subtitle">Команды, отчеты, назначение аудитора и финальный approve/reject</p>
+
+      <div class="grid" style="grid-template-columns:repeat(4,1fr);margin-top:16px;">
+        <div class="kpi">
+          <div class="muted">Команд</div>
+          <div class="value">3</div>
+        </div>
+        <div class="kpi">
+          <div class="muted">Отчетов</div>
+          <div class="value">12</div>
+        </div>
+        <div class="kpi">
+          <div class="muted">Ожидают назначения</div>
+          <div class="value">4</div>
+        </div>
+        <div class="kpi">
+          <div class="muted">Готовы к решению</div>
+          <div class="value">2</div>
+        </div>
+      </div>
+
+      <div class="panel card two-split" style="margin-top:16px;">
+        <div>
+          <h3 style="margin-top:0">Создать команду</h3>
+          <div class="field">
+            <label>Название команды</label>
+            <input value="Команда Север" />
+          </div>
+          <div class="field">
+            <label>Аудиторы (множественный выбор)</label>
+            <select multiple size="4">
+              <option>Ирина Смирнова</option>
+              <option>Дмитрий Литвинов</option>
+              <option>Анна Петрова</option>
+              <option>Илья Козлов</option>
+            </select>
+          </div>
+          <button class="btn">Создать команду</button>
+        </div>
+
+        <div>
+          <h3 style="margin-top:0">Детали выбранной команды</h3>
+          <div class="field">
+            <label>Текущая команда</label>
+            <select>
+              <option>Команда Север</option>
+              <option>Команда Восток</option>
+              <option>Команда Запад</option>
+            </select>
+          </div>
+          <div class="note note-ok">Участники: 1 лидер и 4 аудитора.</div>
+          <div class="note note-warn">Нагрузка распределена равномерно.</div>
+        </div>
+      </div>
+
+      <div class="panel card" style="margin-top:16px;">
+        <div class="table-header-row">
+          <h3 style="margin:0">Отчеты команды</h3>
+          <button class="btn secondary">Обновить</button>
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Отчет</th>
+              <th>Клиент</th>
+              <th>Status</th>
+              <th>Назначенный аудитор</th>
+              <th>Комментарий аудитора</th>
+              <th>Действия</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Q4-2025-Финансы.xlsx</td>
+              <td>ООО Прогресс</td>
+              <td>Submitted</td>
+              <td>-</td>
+              <td>-</td>
+              <td><button class="btn secondary">Assign</button> <button class="btn">Final</button></td>
+            </tr>
+            <tr>
+              <td>Бухгалтерский-Баланс-Январь.xlsx</td>
+              <td>АО СеверИнвест</td>
+              <td>AuditorVerdictSubmitted</td>
+              <td>Анна Петрова</td>
+              <td>Нужны правки периода и netProfit</td>
+              <td><button class="btn">Final</button></td>
+            </tr>
+            <tr>
+              <td>Отчет-Производство-2025.xlsx</td>
+              <td>ООО Вектор</td>
+              <td>LeaderApproved</td>
+              <td>Дмитрий Литвинов</td>
+              <td>Соответствует требованиям</td>
+              <td><span class="badge">Completed</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

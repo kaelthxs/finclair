@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>07 Форма назначения аудитора на отчет</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+  <div class="canvas">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <span>Finclair</span>
+      </div>
+      <div class="topbar-actions">
+        <span class="badge">LEADER ACTION</span>
+        <button class="btn secondary logout-btn"><span class="logout-icon">⎋</span><span>Выйти</span></button>
+      </div>
+    </div>
+
+    <div class="panel card">
+      <h1 class="title">Форма: назначить аудитора на файл</h1>
+      <p class="subtitle">Выберите отчет и назначьте аудитора из команды</p>
+
+      <div class="grid" style="grid-template-columns:1.2fr 0.8fr;margin-top:14px;">
+        <form>
+          <h3 style="margin-top:0">Карточка отчета</h3>
+
+          <div class="form-row">
+            <div class="field">
+              <label>Команда</label>
+              <select>
+                <option>Команда Север</option>
+                <option>Команда Восток</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Отчет</label>
+              <select>
+                <option>Q4-2025-Финансы.xlsx · Submitted</option>
+                <option>Бухгалтерский-Баланс-Январь.xlsx · Submitted</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Аудитор</label>
+            <select>
+              <option>Анна Петрова</option>
+              <option>Ирина Смирнова</option>
+              <option>Дмитрий Литвинов</option>
+            </select>
+          </div>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Аудитор</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Анна Петрова</td><td>Auditor</td></tr>
+              <tr><td>Ирина Смирнова</td><td>Auditor</td></tr>
+              <tr><td>Дмитрий Литвинов</td><td>Auditor</td></tr>
+            </tbody>
+          </table>
+
+          <button class="btn">Подтвердить назначение</button>
+        </form>
+
+        <div class="panel card" style="background:#171723;">
+          <h3 style="margin-top:0">Проверки перед submit</h3>
+          <div class="note note-ok">Пользователь выбирается только из аудиторов выбранной команды.</div>
+          <div class="note note-ok">Отчет выбирается только из списка выбранной команды.</div>
+          <div class="note note-warn">Назначение можно перезаписать новым выбором.</div>
+
+          <div class="note note-ok">
+            <strong>Текущий отчет:</strong> Q4-2025-Финансы.xlsx<br />
+            <strong>Status:</strong> Submitted<br />
+            <strong>Client:</strong> ООО Прогресс
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

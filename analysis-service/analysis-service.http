@@ -1,0 +1,59 @@
+@analysis_host = http://localhost:8001
+@jwt_leader = Bearer REPLACE_WITH_LEADER_TOKEN
+@jwt_auditor = Bearer REPLACE_WITH_AUDITOR_TOKEN
+@jwt_client = Bearer REPLACE_WITH_CLIENT_TOKEN
+
+### Create team (leader)
+POST {{analysis_host}}/api/teams
+Authorization: {{jwt_leader}}
+Content-Type: application/json
+
+{
+  "name": "Team Alpha",
+  "auditorUserIds": ["auditor-user-id-1"]
+}
+
+### Client uploads Excel report to team
+POST {{analysis_host}}/api/teams/{{team_id}}/reports/upload
+Authorization: {{jwt_client}}
+Content-Type: multipart/form-data; boundary=Boundary
+
+--Boundary
+Content-Disposition: form-data; name="file"; filename="report.xlsx"
+Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+
+< ./report.xlsx
+--Boundary--
+
+### Leader assigns report to auditor
+POST {{analysis_host}}/api/reports/{{report_id}}/assign
+Authorization: {{jwt_leader}}
+Content-Type: application/json
+
+{
+  "auditorUserId": "auditor-user-id-1"
+}
+
+### Auditor runs algorithm
+POST {{analysis_host}}/api/reports/{{report_id}}/run-algorithm
+Authorization: {{jwt_auditor}}
+
+### Auditor submits verdict
+POST {{analysis_host}}/api/reports/{{report_id}}/auditor-verdict
+Authorization: {{jwt_auditor}}
+Content-Type: application/json
+
+{
+  "verdict": "Approve",
+  "comment": "Algorithm checks passed."
+}
+
+### Leader final approve
+POST {{analysis_host}}/api/reports/{{report_id}}/leader-approve
+Authorization: {{jwt_leader}}
+Content-Type: application/json
+
+{
+  "approve": true,
+  "comment": "Final approval by team leader."
+}

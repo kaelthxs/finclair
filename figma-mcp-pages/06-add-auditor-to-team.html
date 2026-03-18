@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>06 Форма добавления аудитора в команду</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+  <div class="canvas">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <span>Finclair</span>
+      </div>
+      <div class="topbar-actions">
+        <span class="badge">LEADER ACTION</span>
+        <button class="btn secondary logout-btn"><span class="logout-icon">⎋</span><span>Выйти</span></button>
+      </div>
+    </div>
+
+    <div class="panel modal">
+      <h1 class="title">Форма: добавить аудитора в команду</h1>
+      <p class="subtitle">Выберите команду и аудитора для добавления</p>
+
+      <div class="stepper" style="margin-top:14px;">
+        <div class="step active">1. Выбор команды</div>
+        <div class="step active">2. Выбор аудитора</div>
+        <div class="step">3. Подтверждение</div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label>Команда</label>
+          <select>
+            <option>Команда Север</option>
+            <option>Команда Восток</option>
+            <option>Команда Запад</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Аудитор</label>
+          <select>
+            <option>Анна Петрова</option>
+            <option>Дмитрий Литвинов</option>
+            <option>Ирина Смирнова</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="panel card" style="margin-top:10px;background:#171723;">
+        <div class="table-header-row">
+          <strong>Участники выбранной команды</strong>
+          <span class="pill">role = LEADER / AUDITOR</span>
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Участник</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Марина Орлова</td><td>Leader</td></tr>
+            <tr><td>Анна Петрова</td><td>Auditor</td></tr>
+            <tr><td>Ирина Смирнова</td><td>Auditor</td></tr>
+            <tr><td>Дмитрий Литвинов</td><td>Auditor</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="inline-actions" style="justify-content:space-between;margin-top:12px;align-items:center;">
+        <span class="muted tiny">Проверка: аудитора можно добавить, только если его нет в составе команды.</span>
+        <div class="inline-actions">
+          <button class="btn secondary">Отмена</button>
+          <button class="btn">Добавить аудитора</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

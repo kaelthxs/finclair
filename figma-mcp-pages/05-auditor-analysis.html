@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>05 Анализ файла аудитором</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+  <div class="canvas">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <span>Finclair</span>
+      </div>
+      <div class="topbar-actions">
+        <span class="badge">ALGORITHM VIEW</span>
+        <button class="btn secondary logout-btn"><span class="logout-icon">⎋</span><span>Выйти</span></button>
+      </div>
+    </div>
+
+    <div class="panel card" style="margin-bottom:16px;">
+      <h1 class="title">Анализ отчета: Q4-2025-Финансы.xlsx</h1>
+      <p class="subtitle">Подсветка appropriate/not appropriate и уведомления алгоритма</p>
+
+      <div class="form-row" style="margin-top:14px;">
+        <div class="field">
+          <label>Команда</label>
+          <select>
+            <option>Команда Север</option>
+            <option>Команда Восток</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Отчет</label>
+          <select>
+            <option>Q4-2025-Финансы.xlsx · AssignedToAuditor</option>
+            <option>Бухгалтерский-Баланс-Январь.xlsx · AlgorithmCompleted</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn">Запустить алгоритм</button>
+    </div>
+
+    <div class="grid" style="grid-template-columns:1.1fr 0.9fr;">
+      <div class="panel card">
+        <h3 style="margin-top:0">Поля из Excel</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Value</th>
+              <th>Severity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>organizationName</td>
+              <td>ООО Прогресс</td>
+              <td><span class="badge severity green">GREEN</span></td>
+            </tr>
+            <tr>
+              <td>inn</td>
+              <td>7701234567</td>
+              <td><span class="badge severity green">GREEN</span></td>
+            </tr>
+            <tr>
+              <td>reportingPeriod</td>
+              <td>2025-Q4</td>
+              <td><span class="badge severity orange">ORANGE</span></td>
+            </tr>
+            <tr>
+              <td>revenue</td>
+              <td>1 200 000</td>
+              <td><span class="badge severity green">GREEN</span></td>
+            </tr>
+            <tr>
+              <td>expenses</td>
+              <td>700 000</td>
+              <td><span class="badge severity green">GREEN</span></td>
+            </tr>
+            <tr>
+              <td>netProfit</td>
+              <td>450 000</td>
+              <td><span class="badge severity red">RED</span></td>
+            </tr>
+            <tr>
+              <td>assets</td>
+              <td>2 000 000</td>
+              <td><span class="badge severity green">GREEN</span></td>
+            </tr>
+            <tr>
+              <td>liabilities</td>
+              <td>900 000</td>
+              <td><span class="badge severity green">GREEN</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel card">
+        <h3 style="margin-top:0">Notifications алгоритма</h3>
+        <div class="note note-danger"><strong>High:</strong> netProfit не совпадает с формулой выручка - расходы.</div>
+        <div class="note note-warn"><strong>Medium:</strong> reportingPeriod в нестандартном формате.</div>
+        <div class="note note-ok"><strong>OK:</strong> ИНН и базовые реквизиты валидны.</div>
+        <div class="note note-ok"><strong>OK:</strong> Активы не меньше обязательств.</div>
+
+        <form style="margin-top:12px;">
+          <div class="field">
+            <label>verdict</label>
+            <select>
+              <option>NeedsFixes</option>
+              <option>Approve</option>
+              <option>Reject</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>comment</label>
+            <textarea rows="5">Требуется поправить расчет netProfit и формат reportingPeriod.</textarea>
+          </div>
+          <button class="btn" style="width:100%">Submit Auditor Verdict</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

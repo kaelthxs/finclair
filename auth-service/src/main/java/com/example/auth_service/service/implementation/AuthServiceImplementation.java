@@ -15,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Locale;
 import java.util.UUID;
 
 @Service
@@ -135,8 +136,13 @@ public class AuthServiceImplementation implements AuthService {
             throw new RuntimeException("Email already in use");
         }
 
-        Role userRole = roleRepository.findByName("USER")
-                .orElseThrow(() -> new RuntimeException("Role USER not found"));
+        String requestedRole = request.getRoleName();
+        String roleName = (requestedRole == null || requestedRole.isBlank())
+                ? "USER"
+                : requestedRole.trim().toUpperCase(Locale.ROOT);
+
+        Role userRole = roleRepository.findByName(roleName)
+                .orElseThrow(() -> new RuntimeException("Role " + roleName + " not found"));
 
         User user = new User(
                 request.getLogin(),

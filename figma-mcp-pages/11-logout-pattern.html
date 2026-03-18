@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>11 Logout Pattern</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+  <div class="canvas">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <span>Finclair</span>
+      </div>
+      <div class="topbar-actions">
+        <span class="badge">GLOBAL COMPONENT</span>
+        <button class="btn secondary logout-btn"><span class="logout-icon">⎋</span><span>Выйти</span></button>
+      </div>
+    </div>
+
+    <div class="panel card" style="max-width:760px;">
+      <h1 class="title">Паттерн выхода из сессии</h1>
+      <p class="subtitle">Единый компонент: кнопка logout в хедере + confirm modal</p>
+
+      <div class="note note-ok">Кнопка "Выйти" есть на каждом защищенном экране.</div>
+      <div class="note note-ok">После клика открывается окно подтверждения.</div>
+      <div class="note note-warn">При подтверждении сессия завершается и токены очищаются.</div>
+      <div class="note note-ok">Access token обновляется автоматически без отдельного UI.</div>
+    </div>
+  </div>
+
+  <div class="logout-overlay demo">
+    <div class="panel logout-modal">
+      <h3>Подтвердить выход?</h3>
+      <p class="muted">Вы уверены, что хотите завершить текущую сессию?</p>
+      <div class="logout-actions">
+        <button class="btn secondary">Отмена</button>
+        <button class="btn">Выйти</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

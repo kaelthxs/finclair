@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>10 Полный workflow задач</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+  <div class="canvas">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <span>Finclair</span>
+      </div>
+      <div class="topbar-actions">
+        <span class="badge">END-TO-END</span>
+        <button class="btn secondary logout-btn"><span class="logout-icon">⎋</span><span>Выйти</span></button>
+      </div>
+    </div>
+
+    <div class="panel card">
+      <h1 class="title">Полный workflow задач системы</h1>
+      <p class="subtitle">От регистрации до финального approve/reject</p>
+
+      <div class="note note-ok" style="margin-top:12px;">Auth UX: refresh access token выполняется автоматически, logout доступен в хедере каждого экрана.</div>
+
+      <div class="stepper" style="margin-top:14px;">
+        <div class="step active">Регистрация и вход</div>
+        <div class="step active">Создание команды</div>
+        <div class="step active">Добавление аудитора</div>
+        <div class="step active">Загрузка Excel</div>
+        <div class="step active">Назначение аудитора</div>
+        <div class="step active">Алгоритм</div>
+        <div class="step active">Вердикт аудитора</div>
+        <div class="step active">Финальное решение</div>
+      </div>
+
+      <div class="grid" style="grid-template-columns:1fr 1fr;margin-top:14px;">
+        <div class="panel card" style="background:#171723;">
+          <h3 style="margin-top:0">Действия лидера</h3>
+          <ul class="muted list" style="line-height:1.8;">
+            <li>Создает команду</li>
+            <li>Добавляет аудитора в команду</li>
+            <li>Назначает аудитора на отчет</li>
+            <li>Отправляет финальное решение клиенту</li>
+          </ul>
+        </div>
+
+        <div class="panel card" style="background:#171723;">
+          <h3 style="margin-top:0">Действия аудитора и клиента</h3>
+          <ul class="muted list" style="line-height:1.8;">
+            <li>Клиент загружает Excel-файл</li>
+            <li>Аудитор запускает алгоритм анализа</li>
+            <li>Аудитор отправляет официальный вердикт</li>
+            <li>Клиент получает комментарий лидера</li>
+          </ul>
+        </div>
+      </div>
+
+      <table class="table" style="margin-top:14px;">
+        <thead>
+          <tr>
+            <th>Endpoint</th>
+            <th>Role</th>
+            <th>Status transition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>/api/teams</td><td>LEADER</td><td>Team Created</td></tr>
+          <tr><td>/api/teams/{teamId}/auditors</td><td>LEADER</td><td>Auditor Added</td></tr>
+          <tr><td>/api/teams/{teamId}/reports/upload</td><td>CLIENT</td><td>Submitted</td></tr>
+          <tr><td>/api/reports/{id}/assign</td><td>LEADER</td><td>AssignedToAuditor</td></tr>
+          <tr><td>/api/reports/{id}/run-algorithm</td><td>AUDITOR</td><td>AlgorithmCompleted</td></tr>
+          <tr><td>/api/reports/{id}/auditor-verdict</td><td>AUDITOR</td><td>AuditorVerdictSubmitted</td></tr>
+          <tr><td>/api/reports/{id}/leader-approve</td><td>LEADER</td><td>LeaderApproved / LeaderRejected</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

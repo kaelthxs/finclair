@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>04 Кабинет клиента</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+  <div class="canvas">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <span>Finclair</span>
+      </div>
+      <div class="topbar-actions">
+        <span class="badge">ROLE: CLIENT</span>
+        <button class="btn secondary logout-btn"><span class="logout-icon">⎋</span><span>Выйти</span></button>
+      </div>
+    </div>
+
+    <div class="tabs page-tabs">
+      <div class="tab nav-tab active">Загрузка</div>
+      <div class="tab nav-tab">Мои отчеты</div>
+    </div>
+
+    <div class="grid" style="grid-template-columns:1.2fr 1fr;">
+      <div class="panel card">
+        <h1 class="title">Кабинет клиента</h1>
+        <p class="subtitle">Выбор команды и загрузка Excel-файла по шаблону ГОСТ</p>
+
+        <div class="field" style="margin-top:14px;">
+          <label>Команда</label>
+          <select>
+            <option>Команда Север</option>
+            <option>Команда Восток</option>
+            <option>Команда Запад</option>
+          </select>
+        </div>
+
+        <div class="upload-dropzone">
+          <div style="font-weight:600">Перетащите файл сюда</div>
+          <div class="muted tiny" style="margin-top:6px">или нажмите "Выбрать файл"</div>
+          <button class="btn" style="margin-top:12px">Выбрать файл</button>
+          <div class="muted tiny" style="margin-top:8px">Поддерживается: .xlsx, .xls</div>
+        </div>
+
+        <div class="inline-actions" style="align-items:center;">
+          <span class="badge">Q4-2025-Финансы.xlsx</span>
+          <button class="btn">Upload</button>
+        </div>
+      </div>
+
+      <div class="panel card">
+        <div class="table-header-row">
+          <h3 style="margin:0">Мои отчеты и решения</h3>
+          <button class="btn secondary">Обновить</button>
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Отчет</th>
+              <th>Status</th>
+              <th>Комментарий аудитора</th>
+              <th>Комментарий лидера</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Q4-2025-Финансы.xlsx</td>
+              <td>AssignedToAuditor</td>
+              <td>Проверка запущена</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>Бухгалтерский-Баланс-Январь.xlsx</td>
+              <td>LeaderRejected</td>
+              <td>Нужны правки по периоду</td>
+              <td>Исправьте reportingPeriod и netProfit</td>
+            </tr>
+            <tr>
+              <td>Отчет-Производство-2025.xlsx</td>
+              <td>LeaderApproved</td>
+              <td>Все проверки пройдены</td>
+              <td>Отчет принят</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

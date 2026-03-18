@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>01 Авторизация и регистрация</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+  <div class="canvas auth-canvas">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <span>Finclair</span>
+      </div>
+      <div class="topbar-actions">
+        <span class="badge">AUTH SERVICE</span>
+      </div>
+    </div>
+
+    <div class="panel auth-panel">
+      <div class="auth-left">
+        <h1 class="title">Доступ к платформе</h1>
+        <p class="subtitle">Анализ, верификация и аудит финансовой отчетности</p>
+
+        <div class="tabs" style="margin-top:18px">
+          <div class="tab active">Вход</div>
+          <div class="tab">Регистрация</div>
+        </div>
+
+        <div class="form-block">
+          <div class="field">
+            <label>identifier (email или login)</label>
+            <input placeholder="leader@example.com" />
+          </div>
+          <div class="field">
+            <label>password</label>
+            <input type="password" value="********" />
+          </div>
+
+          <div class="inline-actions">
+            <button class="btn">Войти</button>
+            <button class="btn secondary" type="button">Забыли пароль?</button>
+          </div>
+
+          <p class="muted tiny" style="margin-top:10px">Access token обновляется автоматически через refresh flow.</p>
+        </div>
+      </div>
+
+      <div class="auth-right">
+        <h2 style="margin-top:0">Регистрация</h2>
+        <div class="grid two-col">
+          <div class="field">
+            <label>login</label>
+            <input value="auditor_ivanov" />
+          </div>
+          <div class="field">
+            <label>email</label>
+            <input value="auditor@example.com" />
+          </div>
+          <div class="field">
+            <label>password</label>
+            <input type="password" value="********" />
+          </div>
+          <div class="field">
+            <label>preferredLanguage</label>
+            <select>
+              <option>ru</option>
+              <option>en</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>firstName</label>
+            <input value="Иван" />
+          </div>
+          <div class="field">
+            <label>lastName</label>
+            <input value="Иванов" />
+          </div>
+          <div class="field field-wide">
+            <label>roleName</label>
+            <select>
+              <option>LEADER</option>
+              <option>AUDITOR</option>
+              <option>CLIENT</option>
+              <option>USER</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn" style="width:100%">Создать аккаунт</button>
+
+        <div class="note note-ok">Обязательные поля и формат email проверяются до отправки формы.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
